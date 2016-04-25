@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           version="3.0">
+    <!--声明一个Servlet类-->
+    <servlet>
+        <!--Servlet的标识名-->
+        <servlet-name>firstServlet</servlet-name>
+        <!--Servelt类的全限定名（包名.类名）-->
+        <servlet-class>com.yyq.firstdemo.FirstServletDemo</servlet-class>
+    </servlet>
+    <!--Servlet的映射配置-->
+    <servlet-mapping>
+        <!--Servlet的标识名-->
+        <servlet-name>firstServlet</servlet-name>
+        <!--URL匹配模式-->
+        <url-pattern>/firstServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>servlet01</servlet-name>
+        <servlet-class>com.yyq.sendredirect.Servlet01</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet01</servlet-name>
+        <url-pattern>/s01</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servlet02</servlet-name>
+        <servlet-class>com.yyq.sendredirect.Servlet02</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet02</servlet-name>
+        <url-pattern>/s02</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>servlet03</servlet-name>
+        <servlet-class>com.yyq.requestdispatcher.Servlet03</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet03</servlet-name>
+        <url-pattern>/servlet03</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servlet04</servlet-name>
+        <servlet-class>com.yyq.requestdispatcher.Servlet04</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet04</servlet-name>
+        <url-pattern>/servlet04</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>servlet05</servlet-name>
+        <servlet-class>com.yyq.attributerequest.Servlet05</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet05</servlet-name>
+        <url-pattern>/servlet05</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servlet06</servlet-name>
+        <servlet-class>com.yyq.attributerequest.Servlet06</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet06</servlet-name>
+        <url-pattern>/servlet06</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>initparamservlet</servlet-name>
+        <servlet-class>com.yyq.initparam.InitParamServlet</servlet-class>
+        <!--定义一个Servlet初始化参数-->
+        <init-param>
+            <!--参数名-->
+            <param-name>encoding</param-name>
+            <!--参数值-->
+            <param-value>utf-8</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>initparamservlet</servlet-name>
+        <url-pattern>/initparamservlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>servletcontextservlet</servlet-name>
+        <servlet-class>com.yyq.servletcontext.ServletContextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletcontextservlet</servlet-name>
+        <url-pattern>/servletcontextservlet</url-pattern>
+    </servlet-mapping>
+    <!--定义一个Web应用上下文初始化参数-->
+    <context-param>
+        <!--参数名-->
+        <param-name>appName</param-name>
+        <!--参数值-->
+        <param-value>Servlet入门基础</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>sessionservlet</servlet-name>
+        <servlet-class>com.yyq.session.SessionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sessionservlet</servlet-name>
+        <url-pattern>/sessionservlet</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!--CookieServlet的配置-->
+    <servlet>
+        <servlet-name>cookieservlet</servlet-name>
+        <servlet-class>com.yyq.cookies.CookieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cookieservlet</servlet-name>
+        <url-pattern>/cookieservlet</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!--定义一个过滤器-->
+    <filter>
+        <!--过滤器的标识名-->
+        <filter-name>characterEncodingFilter</filter-name>
+        <!--过滤器实现类的全限定名-->
+        <filter-class>com.yyq.filter.CharacterEncodingFilter</filter-class>
+        <!--配置初始化参数-->
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <!--过滤器的映射配置-->
+    <filter-mapping>
+        <!--过滤器的标识名-->
+        <filter-name>characterEncodingFilter</filter-name>
+        <!--过滤器的URL匹配模式-->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--定义自动压缩响应输出流的过滤器-->
+    <filter>
+        <filter-name>Compression Filter</filter-name>
+        <filter-class>com.yyq.compressionFilters.CompressionFilter</filter-class>
+        <!--缓冲区的大小-->
+        <init-param>
+            <param-name>compressionThreshold</param-name>
+            <param-value>512</param-value>
+        </init-param>
+        <!--调试的级别-->
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+    </filter>
+    <!--过滤器的映射配置-->
+    <filter-mapping>
+        <filter-name>Compression Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--注册一个监听器-->
+    <listener>
+        <!--指定监听器实现类的全限定名-->
+        <listener-class>com.yyq.listener.OnlineListener</listener-class>
+    </listener>
+
+
+    <!--配置LoginServlet-->
+    <servlet>
+        <servlet-name>loginservlet</servlet-name>
+        <servlet-class>com.yyq.listener.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginservlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+
+    <!--配置LogoutServlet-->
+    <servlet>
+        <servlet-name>logoutservlet</servlet-name>
+        <servlet-class>com.yyq.listener.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutservlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+
+</web-app>
